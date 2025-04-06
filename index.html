@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Matcher 💫</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Mood Matcher 💫</h1>
+
+    <form id="moodForm">
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <textarea id="feeling" placeholder="Describe your feeling..." required></textarea>
+      
+      <div class="mood-buttons">
+        <button type="button" class="mood" data-mood="happy">😊 Happy</button>
+        <button type="button" class="mood" data-mood="sad">😢 Sad</button>
+        <button type="button" class="mood" data-mood="excited">🤩 Excited</button>
+        <button type="button" class="mood" data-mood="tired">😴 Tired</button>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="output"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
