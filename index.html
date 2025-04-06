@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mood Matcher 💫</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Mood Matcher 💫</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Mood Matcher 💫</h1>
+    <h1>Interactive Mood Matcher</h1>
+    <div id="output" style="display: none;"></div>
+
+    <!-- Mood selection buttons -->
+    <div class="moods">
+      <button class="mood" data-mood="happy">😊</button>
+      <button class="mood" data-mood="sad">😢</button>
+      <button class="mood" data-mood="excited">🤩</button>
+      <button class="mood" data-mood="tired">😴</button>
+    </div>
 
     <form id="moodForm">
       <input type="text" id="name" placeholder="Enter your name" required />
-      <textarea id="feeling" placeholder="Describe your feeling..." required></textarea>
-      
-      <div class="mood-buttons">
-        <button type="button" class="mood" data-mood="happy">😊 Happy</button>
-        <button type="button" class="mood" data-mood="sad">😢 Sad</button>
-        <button type="button" class="mood" data-mood="excited">🤩 Excited</button>
-        <button type="button" class="mood" data-mood="tired">😴 Tired</button>
-      </div>
-
+      <textarea id="feeling" placeholder="How are you feeling today?" required></textarea>
       <button type="submit">Submit</button>
     </form>
 
-    <div id="output"></div>
+    <!-- Theme selection -->
+    <div class="theme-selector">
+      <button class="theme-btn" data-theme="light">Light 🌞</button>
+      <button class="theme-btn" data-theme="dark">Dark 🌑</button>
+      <button class="theme-btn" data-theme="purple">Purple 🌼</button>
+    </div>
+
+    <!-- Theme Image -->
+    <p id="saved-theme"></p>
+    <img id="themeImage" src="" alt="Theme Image" style="display:none;">
   </div>
 
   <script src="script.js"></script>

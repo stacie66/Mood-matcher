@@ -25,6 +25,7 @@ function showStats() {
 }
 showStats();
 
+// Add event listeners to mood buttons
 document.querySelectorAll('.mood').forEach(button => {
   button.addEventListener('click', () => {
     // Emoji animation
@@ -43,6 +44,7 @@ document.querySelectorAll('.mood').forEach(button => {
   });
 });
 
+// Handle mood form submission
 document.getElementById('moodForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -90,4 +92,48 @@ document.getElementById('moodForm').addEventListener('submit', function (e) {
     <p>Your note: "${feeling}"</p>
   `;
   output.style.display = 'block';
+});
+
+// Theme Selection with Animation and localStorage
+document.querySelectorAll('.theme-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const theme = btn.dataset.theme;
+    localStorage.setItem('preferredTheme', theme);
+    applyTheme(theme);
+  });
+});
+
+function applyTheme(theme) {
+  const savedTheme = document.getElementById('saved-theme');
+  const img = document.getElementById('themeImage');
+
+  switch (theme) {
+    case 'light':
+      document.body.style.background = '#f0f8ff';
+      savedTheme.textContent = 'Your favorite theme is Light 🌞';
+      img.src = 'https://via.placeholder.com/200x150/f0f8ff/000000?text=Light';
+      break;
+    case 'dark':
+      document.body.style.background = '#121212';
+      savedTheme.textContent = 'Your favorite theme is Dark 🌑';
+      img.src = 'https://via.placeholder.com/200x150/121212/ffffff?text=Dark';
+      break;
+    case 'purple':
+      document.body.style.background = '#e1bee7';
+      savedTheme.textContent = 'Your favorite theme is Purple 🌼';
+      img.src = 'https://via.placeholder.com/200x150/e1bee7/000000?text=Purple';
+      break;
+  }
+
+  img.style.display = 'block';
+  img.classList.remove('pop');
+  void img.offsetWidth; // trigger reflow to restart animation
+  img.classList.add('pop');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const storedTheme = localStorage.getItem('preferredTheme');
+  if (storedTheme) {
+    applyTheme(storedTheme);
+  }
 });
